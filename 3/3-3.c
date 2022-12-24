@@ -38,7 +38,7 @@ void expand(char s1[], char s2[])
 			}
 			else if (s1[i + 1] == '-' && is_alpha_or_digit(s1[i + 2]))
 			{
-				/* expands the shorthand notations both in crescent and decrescent order */
+				/* expand the shorthand notations both in crescent and decrescent order */
 				if (s1[i] < s1[i + 2]) {
 					for (ch = s1[i]; ch < s1[i + 2]; ch++) {
 						s2[j++] = ch;
