@@ -2,7 +2,7 @@
 	Exercise 4-4. Add commands to print the top element of the stack without popping, to duplicate it, and to swap the top two elements. Add a command to clear the stack.
 */
 
-#include <math.h>					/* fmod() */
+#include <math.h>					/* fmod(), sin(), exp() and pow() */
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>					/* atof() */
@@ -28,7 +28,7 @@ double val[MAXVAL];					/* value on the stack */
 
 int main(void)
 {
-	int type, dup = 0;
+	int type, p = 0;
 	int temp;
 	double op2;
 	char s[MAXOP];
@@ -66,20 +66,14 @@ int main(void)
 					push(fmod(pop(), op2));
 				break;
 
-			/* print top element */
-			case 'P':
-				dup = 1;
-				break;
-
-			/* duplicate top element */
-			case 'D':
-				op2 = pop();
-				push(op2);
-				push(op2);
+			/* clear the stack */
+			case '!':
+				while (sp != 0)
+					val[sp--] = 0;
 				break;
 
 			/* swap top two elements */
-			case 'S':
+			case '~':
 				temp = pop();
 				op2 = pop();
 
@@ -88,14 +82,20 @@ int main(void)
 
 				break;
 
-			/* clear the stack */
-			case 'C':
-				while (sp != 0)
-					val[sp--] = 0;
+			/* duplicate top element */
+			case '#':
+				op2 = pop();
+				push(op2);
+				push(op2);
 				break;
-				
+
+			/* print top element */
+			case '?':
+				p = 1;
+				break;
+
 			case '\n':
-				if (!dup)
+				if (!p)
 					printf("%.8g\n", pop());
 				else {
 					printf("%.8g\n", val[sp - 1]);
