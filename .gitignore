@@ -6,7 +6,7 @@
 # Don't ignore Makefile
 !Makefile
 
-# Unknoun files
+# Unknown files
 *.ipch
 
 # Object files
@@ -42,3 +42,6 @@
 
 # Debug files
 *.dSYM/
+
+# Reverse Polish calculator
+calculator
