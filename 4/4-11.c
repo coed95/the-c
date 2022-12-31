@@ -18,15 +18,6 @@ int getch(void)
 	return (bufp > 0) ? buf[--bufp] : getchar();
 }
 
-/* ungetch: push character back on input */
-void ungetch(int c)
-{
-	if (bufp >= BUFSIZE)
-		puts("ungetch: too many characters");
-	else
-		buf[bufp++] = c;
-}
-
 /* getop: get next operator or numeric operand */
 int getop(char s[])
 {
