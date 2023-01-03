@@ -21,4 +21,5 @@ void pstrcat(char *s, char *t)
 
 	while (*s++ = *t++)
 		;
+	*s = '\0';
 }
