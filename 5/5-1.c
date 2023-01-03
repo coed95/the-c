@@ -32,12 +32,6 @@ int getint(int *pn)
 	while (isspace(c = getch()))	/* skip white spaces */
 		;
 
-	if (!isdigit(c) && c != EOF)
-	{
-		ungetch(c);		/* not a number */
-		return 0;
-	}
-
 	sign = (c == '-') ? -1 : 1;
 
 	if (c == '+' || c == '-') {
@@ -47,6 +41,12 @@ int getint(int *pn)
 			ungetch((sign == 1) ? '+' : '-');
 			return 0;
 		}
+	}
+
+	if (!isdigit(c) && c != EOF)
+	{
+		ungetch(c);		/* not a number */
+		return 0;
 	}
 
 	for (*pn = 0; isdigit(c); c = getch())
