@@ -124,7 +124,7 @@ int getword(char *word, int lim)
 	if (c != EOF)
 		*w++ = c;
 
-	/* now checks if c is not underscore or inside a string or a preprocessor line */
+	/* not underscore, pp line, comment, string */
 	if (!isalpha(c) && c != '_' && c != '\"' && c != '#' && c != '/') {
 		*w = '\0';
 		return c;
