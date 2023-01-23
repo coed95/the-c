@@ -154,7 +154,7 @@ int getword(char *word, int lim)
 		if (in_pp_line && (c == '\n'))
 			in_pp_line = 0;
 
-		/* if the char is in a string or in a pp line, and is not alphanumeric */
+		/* if the char is in a string or in a comment or in a pp line, and is not alphanumeric */
 		if (!isalnum(c) && c != '_' && (in_string == 1 || c != '\"') && !in_pp_line && !in_comment)
 		{
 			ungetch(c);
