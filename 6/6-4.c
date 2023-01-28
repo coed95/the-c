@@ -48,7 +48,6 @@ char buf[BUFSIZE];  		/* buffer for ungetch */
 int bufp = 0;       		/* next free position in buf */
 
 int getword(char *, int);
-int numcmp(int, int);
 
 struct tnode *addtree(struct tnode *, char *);
 void tfree(struct tnode *);
@@ -208,17 +207,6 @@ int getword(char *word, int lim)
 	*w = '\0';
 
 	return word[0];
-}
-
-/* numcmp: compare n1 and n2 */
-int numcmp(int n1, int n2)
-{
-	if (n1 < n2)
-		return -1;
-	if (n1 > n2)
-		return 1;
-
-	return 0;
 }
 
 /* get a (possibly pushed-back) character */
