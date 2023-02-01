@@ -24,8 +24,8 @@ char datatype[MAXTOKEN];	/* data type = char, int, etc. */
 char out[MAXOUTPUT];		/* output string */
 int previous_token;			/* previous token before the error */
 
-char buf[BUFSIZE];					/* buffer for ungetch */
-int bufp = 0;						/* next free position in buf */
+char buf[BUFSIZE];			/* buffer for ungetch */
+int bufp = 0;				/* next free position in buf */
 
 /* convert declaration to word */
 int main(void)

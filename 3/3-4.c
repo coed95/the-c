@@ -11,6 +11,17 @@
 	doesn't work for the largest negative number because it is one greater compared to the positive one. To make it work, it is possible to do the opposite control: if the sign is positive, make it negative, and then check it back at the end of the do-while loop.
 */
 
+void reverse(char s[])
+{
+	int c, i, j;
+
+	for (i = 0, j = strlen(s) - 1; i < j; i++, j--) {
+		c = s[i];
+		s[i] = s[j];
+		s[j] = c;
+	}
+}
+
 void itoa(int n, char s[])
 {
 	int sign, i = 0;
